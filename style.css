@@ -26,3 +26,16 @@ ul > li:last-child {
 ul > li:hover {
   cursor: pointer;
 }
+
+.active {
+  background: rgba(20, 20, 240, .8);
+  color: white;
+}
+
+
+
+
+
+
+
+
