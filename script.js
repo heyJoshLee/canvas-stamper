@@ -4,9 +4,20 @@ $(function(){
       method;
 
   var drawing_methods = {
-    square: function() {
-      var side = 30;
-      ctx.fillRect(0, 0, side, side);
+    square: function(e) {
+      var side = 30,
+          x = e.offsetX - side / 2,
+          y = e.offsetY - side / 2;
+      ctx.fillRect(x, y, side, side);
+    },
+    circle: function(e) {
+      var radius = 15,
+          x = e.offsetX - radius / 2,
+          y = e.offsetY - radius / 2;
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.closePath();
     }
   };
 
@@ -19,7 +30,7 @@ $(function(){
     method = $e.attr("data-method");
   }).eq(0).click();
 
-  $("canvas").on("click", function() {
-    drawing_methods[method]();
+  $("canvas").on("click", function(e) {
+    drawing_methods[method](e);
   });
 });
