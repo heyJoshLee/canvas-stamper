@@ -18,6 +18,18 @@ $(function(){
       ctx.arc(x, y, radius, 0, 2 * Math.PI);
       ctx.fill();
       ctx.closePath();
+    },
+    triangle: function(e) {
+      var side = 30,
+          x = e.offsetX,
+          y = e.offsetY - side / 2;
+
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + side / 2, y + side);
+      ctx.lineTo(x - side / 2, y + side);
+      ctx.fill();
+      ctx.closePath();
     }
   };
 
