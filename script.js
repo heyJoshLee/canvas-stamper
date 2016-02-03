@@ -1,7 +1,8 @@
 $(function(){
   var canvas = $("canvas")[0],
       ctx = canvas.getContext("2d"),
-      method;
+      method,
+      $color = $("input");
 
   var drawing_methods = {
     square: function(e) {
@@ -51,6 +52,9 @@ $(function(){
   });
 
   $("canvas").on("click", function(e) {
+    var color = $color.val();
+    console.log(color);
+    ctx.fillStyle = color;
     drawing_methods[method](e);
   });
 });
