@@ -30,6 +30,9 @@ $(function(){
       ctx.lineTo(x - side / 2, y + side);
       ctx.fill();
       ctx.closePath();
+    },
+    clear: function() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
     }
   };
 
@@ -41,6 +44,11 @@ $(function(){
     $e.addClass(class_name);
     method = $e.attr("data-method");
   }).eq(0).click();
+
+  $("#clear").on("click", function(e) {
+    e.preventDefault();
+    drawing_methods.clear();
+  });
 
   $("canvas").on("click", function(e) {
     drawing_methods[method](e);
